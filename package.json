@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gulp-concat-css": "^2.3.0",
     "ngrok": "2.2.6",
     "nodemon": "1.11.0"
   },
