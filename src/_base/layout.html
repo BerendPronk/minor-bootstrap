@@ -298,18 +298,12 @@
     </noscript>
     {% block stylesheets_extra %}{% endblock %}
 
-</head>
-
-<body {% block body_attributes %}{% endblock %}>
-
-    {% block body %}{% endblock %}
-
-    <script src="/assets/js/vendor/jquery.min.js"></script>
-    <script src="/dist/js/bootstrap.js"></script>
-    <script src="/assets/js/docs.min.js"></script>
-    <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="/assets/js/src/fontface-observer.js"></script>
-    <script>
+    <script src="/assets/js/vendor/jquery.min.js" defer></script>
+    <script src="/dist/js/bootstrap.js" defer></script>
+    <script src="/assets/js/docs.min.js" defer></script>
+    <script src="/assets/js/ie10-viewport-bug-workaround.js" defer></script>
+    <script src="/assets/js/src/fontface-observer.js" defer></script>
+    <script defer>
         if (localStorage.fonts) {
             $('html').attr('class', 'fonts-loaded');
         } else {
@@ -341,6 +335,12 @@
             });
         }
     </script>
+</head>
+
+<body {% block body_attributes %}{% endblock %}>
+
+    {% block body %}{% endblock %}
+
     {% block scripts_extra %}{% endblock %}
 </body>
 </html>
