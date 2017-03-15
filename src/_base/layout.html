@@ -288,15 +288,13 @@
             return ss;
         }
 
-        var stylesheets = ['/dist/css/fonts.css', '/dist/css/bootstrap.css', '/assets/css/src/docs.css'];
+        var stylesheets = ['/dist/css/bundle.css'];
         stylesheets.map(function(ss) {
             loadCSS(ss);
         });
     </script>
     <noscript>
-        <link href="/dist/css/fonts.css" rel="stylesheet">
-        <link href="/dist/css/bootstrap.css" rel="stylesheet">
-        <link href="/assets/css/src/docs.css" rel="stylesheet">
+        <link href="/dist/css/bundle.css" rel="stylesheet">
     </noscript>
     {% block stylesheets_extra %}{% endblock %}
 
