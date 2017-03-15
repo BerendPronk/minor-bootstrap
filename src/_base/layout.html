@@ -3,11 +3,303 @@
 <head>
     {% include './app-meta.html' %}
 
-    <link href="/dist/css/fonts.css" rel="stylesheet">
-    <link href="/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="/assets/css/src/docs.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            font-family: sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .sr-only, .v4-tease {
+            display: none;
+        }
+        #bs-navbar {
+            display: flex;
+            justify-content: space-between;
+        }
+        #bs-navbar ul {
+            display: flex;
+            padding: 0;
+        }
+        #bs-navbar li {
+            display: block;
+            margin-right: 1em;
+        }
+        .bs-docs-masthead {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 0;
+            color: #fff;
+            background-color: #6f5499;
+        }
+        .bs-docs-masthead > * {
+            width: 100%;
+            text-align: center;
+        }
+        .bs-docs-masthead a {
+            color: #fff;
+        }
+        .bs-docs-booticon {
+            font-size: 2em;
+        }
+        .container {
+          padding-right: 15px;
+          padding-left: 15px;
+          margin-right: auto;
+          margin-left: auto;
+        }
+        @media (min-width: 768px) {
+          .container {
+            width: 750px;
+          }
+        }
+        @media (min-width: 992px) {
+          .container {
+            width: 970px;
+          }
+        }
+        @media (min-width: 1200px) {
+          .container {
+            width: 1170px;
+          }
+        }
+        .container-fluid {
+          padding-right: 15px;
+          padding-left: 15px;
+          margin-right: auto;
+          margin-left: auto;
+        }
+        .row {
+          margin-right: -15px;
+          margin-left: -15px;
+        }
+        .container:after,
+        .row:after {
+          clear: both;
+          content: '';
+          display: block;
+        }
+        *[class^='col-'] img {
+            width: 100%;
+        }
+        *[class^='col-'] {
+          position: relative;
+          min-height: 1px;
+          padding-right: 15px;
+          padding-left: 15px;
+        }
+        *[class^='col-xs'] {
+          float: left;
+        }
+        .col-xs-12 {
+          width: 100%;
+        }
+        .col-xs-11 {
+          width: 91.66666667%;
+        }
+        .col-xs-10 {
+          width: 83.33333333%;
+        }
+        .col-xs-9 {
+          width: 75%;
+        }
+        .col-xs-8 {
+          width: 66.66666667%;
+        }
+        .col-xs-7 {
+          width: 58.33333333%;
+        }
+        .col-xs-6 {
+          width: 50%;
+        }
+        .col-xs-5 {
+          width: 41.66666667%;
+        }
+        .col-xs-4 {
+          width: 33.33333333%;
+        }
+        .col-xs-3 {
+          width: 25%;
+        }
+        .col-xs-2 {
+          width: 16.66666667%;
+        }
+        .col-xs-1 {
+          width: 8.33333333%;
+        }
+        @media (min-width: 768px) {
+          *[class^='col-sm'] {
+            float: left;
+          }
+          .col-sm-12 {
+            width: 100%;
+          }
+          .col-sm-11 {
+            width: 91.66666667%;
+          }
+          .col-sm-10 {
+            width: 83.33333333%;
+          }
+          .col-sm-9 {
+            width: 75%;
+          }
+          .col-sm-8 {
+            width: 66.66666667%;
+          }
+          .col-sm-7 {
+            width: 58.33333333%;
+          }
+          .col-sm-6 {
+            width: 50%;
+          }
+          .col-sm-5 {
+            width: 41.66666667%;
+          }
+          .col-sm-4 {
+            width: 33.33333333%;
+          }
+          .col-sm-3 {
+            width: 25%;
+          }
+          .col-sm-2 {
+            width: 16.66666667%;
+          }
+          .col-sm-1 {
+            width: 8.33333333%;
+          }
+        }
+        @media (min-width: 992px) {
+          *[class^='col-md'] {
+            float: left;
+          }
+          .col-md-12 {
+            width: 100%;
+          }
+          .col-md-11 {
+            width: 91.66666667%;
+          }
+          .col-md-10 {
+            width: 83.33333333%;
+          }
+          .col-md-9 {
+            width: 75%;
+          }
+          .col-md-8 {
+            width: 66.66666667%;
+          }
+          .col-md-7 {
+            width: 58.33333333%;
+          }
+          .col-md-6 {
+            width: 50%;
+          }
+          .col-md-5 {
+            width: 41.66666667%;
+          }
+          .col-md-4 {
+            width: 33.33333333%;
+          }
+          .col-md-3 {
+            width: 25%;
+          }
+          .col-md-2 {
+            width: 16.66666667%;
+          }
+          .col-md-1 {
+            width: 8.33333333%;
+          }
+        }
+        @media (min-width: 1200px) {
+          *[class^='col-lg'] {
+            float: left;
+          }
+          .col-lg-12 {
+            width: 100%;
+          }
+          .col-lg-11 {
+            width: 91.66666667%;
+          }
+          .col-lg-10 {
+            width: 83.33333333%;
+          }
+          .col-lg-9 {
+            width: 75%;
+          }
+          .col-lg-8 {
+            width: 66.66666667%;
+          }
+          .col-lg-7 {
+            width: 58.33333333%;
+          }
+          .col-lg-6 {
+            width: 50%;
+          }
+          .col-lg-5 {
+            width: 41.66666667%;
+          }
+          .col-lg-4 {
+            width: 33.33333333%;
+          }
+          .col-lg-3 {
+            width: 25%;
+          }
+          .col-lg-2 {
+            width: 16.66666667%;
+          }
+          .col-lg-1 {
+            width: 8.33333333%;
+          }
+        }
+    </style>
+    <script>
+        /*!
+            loadCSS: load a CSS file asynchronously.
+            [c]2014 @scottjehl, Filament Group, Inc.
+            Licensed MIT
+        */
+        function loadCSS(href, before, media){
+            var ss = window.document.createElement('link');
+            var ref = before || window.document.getElementsByTagName('script')[0];
+            var sheets = window.document.styleSheets;
+            ss.rel =  'stylesheet';
+            ss.href = href;
+            ss.media = 'only x';
+            ref.parentNode.insertBefore(ss, ref);
+            function toggleMedia() {
+                var defined;
+                for (var i = 0; i < sheets.length; i++) {
+                    if (sheets[i].href && sheets[i].href.indexOf(href) > -1) {
+                        defined = true;
+                    }
+                }
+                if (defined) {
+                    ss.media = media || 'all';
+                }
+                else {
+                    setTimeout(toggleMedia);
+                }
+            }
+            toggleMedia();
+            return ss;
+        }
 
-    {% block head_extra %}{% endblock %}
+        var stylesheets = ['/dist/css/fonts.css', '/dist/css/bootstrap.css', '/assets/css/src/docs.css'];
+        stylesheets.map(function(ss) {
+            loadCSS(ss);
+        });
+    </script>
+    <noscript>
+        <link href="/dist/css/fonts.css" rel="stylesheet">
+        <link href="/dist/css/bootstrap.css" rel="stylesheet">
+        <link href="/assets/css/src/docs.css" rel="stylesheet">
+    </noscript>
+    {% block stylesheets_extra %}{% endblock %}
+
 </head>
 
 <body {% block body_attributes %}{% endblock %}>
