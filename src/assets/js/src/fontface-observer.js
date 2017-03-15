@@ -6,3 +6,34 @@ A.prototype.load=function(a,b){var c=this,k=a||"BESbswy",q=0,D=b||3E3,H=(new Dat
 f&&-1!=g||-1!=f&&-1!=h||-1!=g&&-1!=h)(b=f!=g&&f!=h&&g!=h)||(null===B&&(b=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent),B=!!b&&(536>parseInt(b[1],10)||536===parseInt(b[1],10)&&11>=parseInt(b[2],10))),b=B&&(f==v&&g==v&&h==v||f==w&&g==w&&h==w||f==x&&g==x&&h==x)),b=!b;b&&(d.parentNode&&d.parentNode.removeChild(d),clearTimeout(q),a(c))}function I(){if((new Date).getTime()-H>=D)d.parentNode&&d.parentNode.removeChild(d),b(c);else{var a=document.hidden;if(!0===a||void 0===a)f=e.a.offsetWidth,
 g=n.a.offsetWidth,h=p.a.offsetWidth,u();q=setTimeout(I,50)}}var e=new r(k),n=new r(k),p=new r(k),f=-1,g=-1,h=-1,v=-1,w=-1,x=-1,d=document.createElement("div");d.dir="ltr";t(e,L(c,"sans-serif"));t(n,L(c,"serif"));t(p,L(c,"monospace"));d.appendChild(e.a);d.appendChild(n.a);d.appendChild(p.a);document.body.appendChild(d);v=e.a.offsetWidth;w=n.a.offsetWidth;x=p.a.offsetWidth;I();z(e,function(a){f=a;u()});t(e,L(c,'"'+c.family+'",sans-serif'));z(n,function(a){g=a;u()});t(n,L(c,'"'+c.family+'",serif'));
 z(p,function(a){h=a;u()});t(p,L(c,'"'+c.family+'",monospace'))})})};"undefined"!==typeof module?module.exports=A:(window.FontFaceObserver=A,window.FontFaceObserver.prototype.load=A.prototype.load);}());
+
+if (localStorage.fonts) {
+    $('html').attr('class', 'fonts-loaded');
+} else {
+    var sspRegular = new FontFaceObserver('Source Sans Pro', {
+        weight: 400,
+        style: 'normal'
+    });
+    var sspItalic = new FontFaceObserver('Source Sans Pro', {
+        weight: 400,
+        style: 'italic'
+    });
+    var sspLight = new FontFaceObserver('Source Sans Pro', {
+        weight: 300,
+        style: 'normal'
+    });
+    var sspLightItalic = new FontFaceObserver('Source Sans Pro', {
+        weight: 300,
+        style: 'italic'
+    });
+
+    Promise.all([
+        sspRegular.load(null, 4000),
+        sspItalic.load(null, 4000),
+        sspLight.load(null, 4000),
+        sspLightItalic.load(null, 4000)
+    ]).then(function() {
+        $('html').attr('class', 'fonts-loaded');
+        localStorage.fonts = true;
+    });
+}
