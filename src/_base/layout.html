@@ -18,6 +18,39 @@
     <script src="/dist/js/bootstrap.js"></script>
     <script src="/assets/js/docs.min.js"></script>
     <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/assets/js/src/fontface-observer.js"></script>
+    <script>
+        if (localStorage.fonts) {
+            $('html').attr('class', 'fonts-loaded');
+        } else {
+            var sspRegular = new FontFaceObserver('Source Sans Pro', {
+                weight: 400,
+                style: 'normal'
+            });
+            var sspItalic = new FontFaceObserver('Source Sans Pro', {
+                weight: 400,
+                style: 'italic'
+            });
+            var sspLight = new FontFaceObserver('Source Sans Pro', {
+                weight: 300,
+                style: 'normal'
+            });
+            var sspLightItalic = new FontFaceObserver('Source Sans Pro', {
+                weight: 300,
+                style: 'italic'
+            });
+
+            Promise.all([
+                sspRegular.load(null, 4000),
+                sspItalic.load(null, 4000),
+                sspLight.load(null, 4000),
+                sspLightItalic.load(null, 4000)
+            ]).then(function() {
+                $('html').attr('class', 'fonts-loaded');
+                localStorage.fonts = true;
+            });
+        }
+    </script>
     {% block scripts_extra %}{% endblock %}
 </body>
 </html>
