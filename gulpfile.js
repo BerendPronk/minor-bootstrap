@@ -28,9 +28,9 @@ var handleError = function(err) {
      ============================================================ */
 
 gulp.task('concatCss', function () {
-    return gulp.src(config.assetsPath + '/css/src/*.css')
+    return gulp.src(config.assetsPath + '/css/general/*.css')
         .pipe(concatCss('bundle.css'))
-        .pipe(gulp.dest(config.assetsPath + '/css/src'));
+        .pipe(gulp.dest(config.assetsPath + '/css'));
 });
 
 gulp.task('concatJs', function() {
@@ -44,7 +44,7 @@ gulp.task('concatJs', function() {
      ============================================================ */
 
 gulp.task('minifyCss', function() {
-    return gulp.src(config.assetsPath + '/css/src/bundle.css').pipe(minify({
+    return gulp.src(config.assetsPath + '/css/bundle.css').pipe(minify({
         minify: true,
         collapseWhitespace: true,
         conservativeCollapse: true,
