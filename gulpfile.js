@@ -34,7 +34,7 @@ gulp.task('concatCss', function () {
 });
 
 gulp.task('concatJs', function() {
-  return gulp.src(['./src/assets/js/vendor/jquery.min.js', './src/dist/js/bootstrap.js', './src/assets/js/docs.min.js', './src/assets/js/src/fontface-observer.js', './src/assets/js/ie10-viewport-bug-workaround.js'])
+  return gulp.src(['./src/assets/js/vendor/jquery.min.js', './src/dist/js/bootstrap.js', './src/assets/js/docs.min.js', './src/assets/js/src/fontface-observer.js', './src/assets/js/ie10-viewport-bug-workaround.js', './src/assets/js/loadcss.js'])
     .pipe(concatJs('bundle.js'))
     .pipe(gulp.dest(config.assetsPath + '/js/src'));
 });
