@@ -49,7 +49,7 @@ The addition of this feature takes care of the amount of requests, not of the am
 
 ![JavaScript Bundle](https://berendpronk.github.io/minor/assets/pm/javascript-bundle.png)
 
-### Server-side compression using gzip
+### Server-side compression
 This feature is an addition to the bundling of JavaScript and CSS files. It compresses the files even more, server-side, which means that the user has to download smaller files, with the same outcome.
 
 I've set gzip as the method to compress the files server-side, which reduces the download size of the page by `33%` and the load time by `60%`.
