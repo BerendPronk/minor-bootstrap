@@ -21,7 +21,7 @@ This simple implementation already reduced the download size of the page by half
 ![Images](https://berendpronk.github.io/minor/assets/pm/reduce-image-sizes.png)
 
 ### Implementing a Fontface Observer
-This addition prevents the user's browser to immediately request to download the webfonts from the server, and replaces the font with a temporary fallback font. Meaning that the user will see a similar font, before they are presented with the intended font from the website.  
+This addition prevents the user's browser to immediately request to download the webfonts from the server, and replaces the font with a temporary fallback font. Meaning that the user will see a similar font, before they are presented with the intended font of the website.  
 When the font is done loading in the background, it will replace the fallback font entirely.
 
 The fontface observer does not reduce much of the download size of the webpage, but it does reduce the load time by `47%`.
@@ -29,9 +29,9 @@ The fontface observer does not reduce much of the download size of the webpage, 
 ![Fontface Observer](https://berendpronk.github.io/minor/assets/pm/fontface-observer.png)
 
 ### Asynchronous loading of CSS files
-The page uses a lot of CSS to render the grid and features contained in the Bootstrap library. By not changing anythign about this, the browser will download the CSS immediately, blocking the load of everything important for the user to see.
+The page uses a lot of CSS to render the grid and features contained within the Bootstrap library. By not changing anything about this, the browser will download the CSS immediately, blocking the load of everything important for the user to see.
 
-A lot of the CSS contained in the stylesheets is not used on the page itself, but the unused styling will still be loaded in if nothing is added to prevent this. By defining the critical CSS for the specific page, we only load when the user needs to see. The removes the FOUC (Flash Of Unstyled Content).  
+A lot of the CSS contained in the stylesheets is not used on the page itself, but the unused styling will still be loaded in if nothing is added to prevent this. By defining the critical CSS for the specific page, we only load what the user needs to see. This removes the FOUC (Flash Of Unstyled Content).  
 The rest of the CSS will be loaded in asynchronously by adding a JavaScript function that takes care of this all.
 
 Besides a asynchronous loading, I also bundled the CSS in a single file, reducing the amount of requests the browser needs to make.
@@ -45,7 +45,7 @@ The JavaScript the site uses really adds up on the load time, because the browse
 
 After the bundling, I set the request in the `<head>` of the document with a `defer` attribute. This means that the JavaScript will be requested after all the HTML is loaded.
 
-The addition of this feature takes care of the amount of requests, not of the amount of bytes the eventual site consists of. The load time of the size is reduced by `44%`, though.
+The addition of this feature takes care of the amount of requests, not of the amount of bytes the eventual page consists of. The load time of the site is reduced by `44%`, though.
 
 ![JavaScript Bundle](https://berendpronk.github.io/minor/assets/pm/javascript-bundle.png)
 
